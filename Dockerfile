@@ -12,7 +12,7 @@ WORKDIR $HOME
 
 # # Install Google Chrome
 COPY ./src/ubuntu/install/chrome $INST_SCRIPTS/chrome/
-# RUN bash $INST_SCRIPTS/chrome/install_chrome.sh  && rm -rf $INST_SCRIPTS/chrome/
+RUN bash $INST_SCRIPTS/chrome/install_chrome.sh  && rm -rf $INST_SCRIPTS/chrome/
 
 # Install socks5
 COPY --from=serjs/go-socks5-proxy /socks5 /usr/local/bin/socks5
