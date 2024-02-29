@@ -2,6 +2,7 @@ name: Docker Image CI
 env:
   REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
   REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+  BASE_IMAGE_TAG: ${{ vars.BASE_IMAGE_TAG }}
   REGISTRY: ${{ vars.REGISTRY }}
   FULL_IMAGE: ${{ vars.REGISTRY }}/${{ github.repository }}:v${{ github.sha }}
   CACHE_IMAGE: ${{ vars.REGISTRY }}/${{ github.repository }}:cache
@@ -31,6 +32,8 @@ jobs:
       with:
         context: .
         push: true
+        build-args: |
+          BASE_TAG=${{ env.BASE_IMAGE_TAG }}
         tags: |
           ${{ env.FULL_IMAGE }}
           ${{ env.LATEST_IMAGE }}

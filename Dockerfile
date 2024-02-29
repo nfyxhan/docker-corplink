@@ -11,7 +11,7 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 # # Install Google Chrome
-# COPY ./src/ubuntu/install/chrome $INST_SCRIPTS/chrome/
+COPY ./src/ubuntu/install/chrome $INST_SCRIPTS/chrome/
 # RUN bash $INST_SCRIPTS/chrome/install_chrome.sh  && rm -rf $INST_SCRIPTS/chrome/
 
 # Install socks5
